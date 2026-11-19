@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <!-- viewport-fit=cover : l'app occupe tout l'écran, y compris autour de l'encoche -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Forge</title>
+  <meta name="description" content="Nutrition, musculation, calisthénie et suivi de sèche — 100 % hors ligne.">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Balises Apple : installation sur l'écran d'accueil en plein écran -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Forge">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="splash" class="splash"><img src="icons/icon-192.png" alt="" width="72" height="72"><p>Chargement…</p></div>
+
+  <main id="view" class="view" tabindex="-1"></main>
+
+  <!-- Minuteur de repos (s'affiche quand tu coches une série) -->
+  <div id="rest-timer" class="rest-timer" hidden role="timer" aria-live="polite">
+    <div class="rt-bar"><span></span></div>
+    <div class="rt-row">
+      <div class="rt-text"><span class="rt-label">Repos</span><span class="rt-time">0:00</span></div>
+      <button class="rt-btn" data-act="timer-minus" aria-label="Retirer 15 secondes">−15</button>
+      <button class="rt-btn" data-act="timer-plus" aria-label="Ajouter 30 secondes">+30</button>
+      <button class="rt-btn" data-act="timer-stop" aria-label="Arrêter le minuteur">✕</button>
+    </div>
+  </div>
+
+  <div id="update-banner" class="update-banner" hidden>
+    Nouvelle version installée.
+    <button class="btn primary small" id="update-reload">Recharger</button>
+  </div>
+
+  <nav class="tabbar" aria-label="Navigation principale">
+    <a href="#accueil" data-tab="accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
+      <span>Accueil</span></a>
+    <a href="#nutrition" data-tab="nutrition">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10M17 21V3c-2.5 1.5-3.5 4-3.5 7.5V13H17"/></svg>
+      <span>Nutrition</span></a>
+    <a href="#seance" data-tab="seance">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11"/></svg>
+      <span>Séance</span></a>
+    <a href="#calis" data-tab="calis">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18M8 4v4M16 4v4M8 8c0 2 1.5 3.5 4 3.5S16 10 16 8M12 11.5V17M12 17l-3 4M12 17l3 4"/><circle cx="12" cy="8.2" r="0.01"/></svg>
+      <span>Calisthénie</span></a>
+    <a href="#progres" data-tab="progres">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V4M4 20h16M7.5 15l4-4.5 3 3L20 7"/></svg>
+      <span>Progrès</span></a>
+    <a href="#reglages" data-tab="reglages">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1M18.7 18.7l-2.1-2.1M7.4 7.4 5.3 5.3"/></svg>
+      <span>Réglages</span></a>
+  </nav>
+
+  <div id="sheet-root" class="sheet-root"></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <noscript>Cette app a besoin de JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

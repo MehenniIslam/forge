@@ -1,0 +1,12 @@
+{
+  "name": "forge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PWA hors ligne : nutrition, musculation, calisthénie et suivi de sèche",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/",
+    "icons": "node tools/make-icons.mjs",
+    "start": "node tools/serve.mjs"
+  }
+}
